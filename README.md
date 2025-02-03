@@ -7,7 +7,7 @@
 
 1. Клонирование репозитория 
 
-```[git clone https://gitlab.sparm.com/qms/dep7/charts.git](https://github.com/meat9/charts.git)```
+```https://github.com/meat9/charts.git```
 
 2. Переход в директорию Charts
 
