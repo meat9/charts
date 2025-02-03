@@ -1,0 +1,270 @@
+{
+	"chart_params": {
+		"name": "PLTF",
+		"footer": "Дата время печати",
+		"footer_font_size": 10,
+		"header": "PLTF super chart",
+		"header_font_size": 10,
+		"height": 500,
+		"width": 500,
+		"axis_x": {
+			"max": 40,
+			"min": 14,
+			"format": ".0f",
+			"font_size": "10",
+			"tick_count": "30",
+			"text": {
+				"style": {"font-size": "15"},
+				"text": "line1"
+			}
+		},
+		"axis_y": {
+			"max": 40,
+			"min": 16,
+			"format": ".0f",
+			"font_size": "10",
+			"tick_count": "30",
+			"text": {
+				"style": {"font-size": "15"},
+				"text": "line2"
+			}
+		}
+	},
+	"lines": [
+	  {
+		"name": "mainline",
+		"params": {
+		  "view_dots": 1,
+		  "show_name": "false"
+		},
+		"style": {
+		  "opacity": "0.5",
+		  "stroke": "red",
+		  "stroke-width": 2,
+		  "stroke-dasharray": "10,2",
+		  "fill": "none"
+		},
+		"data": [
+		  {
+			"x": 1,
+			"y": 5
+		  },
+		  {
+			"x": 2,
+			"y": 5
+		  },
+		  {
+			"x": 10,
+			"y": 10
+		  }
+		]
+	  },
+	  {
+		"name": "secline",
+		"params": {
+		  "view_dots": 1,
+		  "show_name": "true"
+		},
+		"style": {
+		  "opacity": "0.5",
+		  "stroke": "red",
+		  "stroke-width": 2,
+		  "fill": "none"
+		},
+		"data": [
+		  {
+			"x": 3,
+			"y": 4
+		  },
+		  {
+			"x": 5,
+			"y": 76
+		  }
+		]
+	  }
+	],
+	"areas": [
+	  {
+		"name": "firstArea",
+		"params": {
+		  "view_dots": 0
+		},
+		"style": {
+		  "opacity": "0.5",
+		  "stroke": "red",
+		  "stroke-width": 2,
+		  "fill": "red"
+		},
+		"attributes": {
+		  "opacity": "1",
+		  "stroke": "red",
+		  "stroke-width": 2,
+		  "fill": "green"
+		},
+		"data": [
+		  {
+			"x": 0,
+			"y": 0,
+			"y0": 50
+		  },
+		  {
+			"x": 50,
+			"y": 0,
+			"y0": 50
+		  }
+		]
+	  },
+	  {
+		"name": "secArea",
+		"params": {
+		  "view_dots": 0
+		},
+		"style": {
+		  "opacity": "0.5",
+		  "stroke": "blue",
+		  "stroke-width": 2,
+		  "fill": "blue"
+		},
+		"data": [
+		  {
+			"x": 0,
+			"y": 0,
+			"y0": 25
+		  },
+		  {
+			"x": 25,
+			"y": 0,
+			"y0": 25
+		  }
+		]
+	  }
+	],
+	"dots": [
+	  {
+		"dots_name": "firstDotBlock",
+		"dots_params": {
+		  "view_lines": 1,
+		  "get_style": 0
+		},
+		"style": {
+		  "opacity": "0.5",
+		  "stroke": "red",
+		  "stroke-width": 2,
+		  "fill": "red"
+		},
+		"data": [
+		  {
+			"x": 1,
+			"y": 5,
+			"color": "#000B00",
+			"size": 3
+		  },
+		  {
+			"x": 10,
+			"y": 25,
+			"color": "#FFFFFF",
+			"size": 5
+		  }
+		]
+	  },
+	  {
+		"dots_name": "secDotBlock",
+		"dots_params": {
+		  "view_lines": 1,
+		  "get_style": 1
+		},
+		"style": {
+		  "opacity": "0.5",
+		  "color": "red",
+		  "width": 2
+		},
+		"data": [
+		  {
+			"x": 11,
+			"y": 30,
+			"color": "#00B000",
+			"size": 3
+		  },
+		  {
+			"x": 15,
+			"y": 35,
+			"color": "#FFFFFF",
+			"size": 5
+		  }
+		]
+	  }
+	],
+	"tables": [
+	  {
+		"styleHeaders": [
+		  {
+			"fontFamily": "Courier"
+		  },
+		  {
+			"textAlign": "center"
+		  },
+		  {
+			"border": "1px black solid"
+		  }
+		],
+		"styleBody": [
+		  {
+			"fontFamily": "Courier"
+		  },
+		  {
+			"textAlign": "center"
+		  },
+		  {
+			"border": "1px black solid"
+		  }
+		],
+		"style": [
+		  {
+			"fontFamily": "inherit",
+			"fontSize": "10pt"
+		  }
+		],
+		"attributes": {
+		  "opacity": "1",
+		  "stroke": "red",
+		  "stroke-width": 2,
+		  "fill": "green"
+		},
+		"headers": [
+		  [
+			"header_1_col_1",
+			"header_1_col_2",
+			"header_1_col_3"
+		  ],
+		  [
+			"header_2_col_1",
+			"header_2_col_2",
+			"header_2_col_3"
+		  ]
+		],
+		"body": [
+		  [
+			"body string 1 cell 1",
+			"body string 1 cell 2",
+			"body string 1 cell 3"
+		  ],
+		  [
+			"body string 2 cell 1",
+			"body string 2 cell 2",
+			"body string 2 cell 3"
+		  ],
+		  [
+			"body string 3 cell 1",
+			"body string 3 cell 2",
+			"body string 3 cell 3"
+		  ]
+		]
+	  }
+	],
+	"text_legends": {
+	  "style": {
+		"font-size": 15
+	  },
+	  "text": "какое-то описание \n 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n 10\n 11\n 12\n 13\n 14\n 15\n 16\n 17\n 18\n 19\n 20"
+	}
+  }

@@ -1,0 +1,27 @@
+{
+  "name": "charts_service",
+  "author": "zhikhar",
+  "description": "uses d3.js to render svg charts on the server-side",
+  "version": "1.0.0",
+  "private": true,
+  "main": "main.js",
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "start": "node main.js",
+    "dev": "nodemon main.js"
+  },
+  "dependencies": {
+    "d3": "5.16.0",
+    "d3-selection-multi": "^1.0.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "jsdom": "^10.0.0",
+    "puppeteer": "^10.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}

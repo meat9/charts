@@ -1,0 +1,22 @@
+stages:          # List of stages for jobs, and their order of execution
+  - build
+  - deploy
+
+build-job:       # This job runs in the build stage, which runs first.
+  image: docker:24.0.5
+  services:
+    - docker:24.0.5-dind
+  stage: build
+  only:
+    - main
+  tags:
+    - node
+
+  script:
+    - docker version
+    - echo "$CI_REGISTRY"
+    - echo $CI_REGISTRY_PASSWORD
+    - docker build --pull -t "$CI_REGISTRY_IMAGE" .
+    - echo $CI_REGISTRY_PASSWORD | docker login -u "$CI_REGISTRY_USER" --password-stdin $CI_REGISTRY
+    - docker push "$CI_REGISTRY_IMAGE"
+
