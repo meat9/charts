@@ -1,11 +1,11 @@
 require("dotenv").config();
 const bodyParser = require("body-parser");
-const workerLite = require("./worker_lite");
-const workerUniversal = require("./worker_universal");
+const workerLite = require("./worker/lite.js");
+const workerUniversal = require("./worker/universal.js");
 const express = require("express");
 const app = express();
-app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
-app.use(bodyParser.json({ limit: "10mb" }));
+app.use(bodyParser.urlencoded({ limit: "100mb", extended: true }));
+app.use(bodyParser.json({ limit: "100mb" }));
 
 const host = process.env.HOST;
 const port = process.env.PORT;
@@ -98,11 +98,22 @@ app.post("/charts", async (req, res) => {
   }
   try {
     var typeChart = req.query.typeresult;
+    var resultParam = req.query.resultParam || 0;
     var result = {};
-    var status = await workerUniversal.main(req.body, typeChart, result);
+    var status = await workerUniversal.main(
+      req.body,
+      typeChart,
+      result,
+      resultParam
+    );
     if (status == 0) {
       return res.status(400).send({ error: result });
     }
+
+    if (typeChart == "svg" && resultParam == "2") {
+      return res.send(result.result);
+    }
+
     res.send(result);
   } catch (error) {
     res.status(500).send({ error: error.toString() });

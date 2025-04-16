@@ -18,8 +18,8 @@
     "dotenv": "^16.4.5",
     "express": "^4.17.1",
     "fs": "^0.0.1-security",
-    "jsdom": "^10.0.0",
-    "puppeteer": "^10.0.0"
+    "jsdom": "^10.1.0",
+    "sharp": "^0.33.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"

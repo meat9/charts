@@ -1,5 +1,5 @@
 const charts_lite = require("./draw_charts_lite.js");
-const util = require("./util.js");
+const util = require("../utils/util.js");
 
 /// Головная функция обработчик. Определяет в каком формате пришли данные и
 /// в каком формате необходим ответ
@@ -97,7 +97,19 @@ async function getChartLiteSvg(data, param = 0) {
 /// </code>
 async function getChartLitePng(data) {
   var svgstr = await getChartLiteSvg(data, 0);
-  return await util.screenShoot(svgstr);
+
+  // медленный вариант с браузером
+  // var height=data.chart_params.height;
+  // var width=data.chart_params.width;
+
+  // if (typeof height=="undefined"){height=500}
+  // if (typeof width=="undefined"){width=500}
+  // var width=width*1.1
+  // var height=height*1.1
+  //return await util.screenShoot(svgstr,height,width);
+  
+
+  return await util.svgToPngBase64(svgstr) // быстрый вариант без браузера
 }
 
 /// Функция обработчик массива графиков
