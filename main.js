@@ -4,8 +4,34 @@ const workerLite = require("./worker/lite.js");
 const workerUniversal = require("./worker/universal.js");
 const express = require("express");
 const app = express();
+
+// Настройка парсера JSON с обработкой ошибок
+app.use(
+  bodyParser.json({
+    limit: "100mb",
+    strict: true, // Разрешаем только объекты/массивы (по умолчанию)
+    verify: (req, res, buf, encoding) => {
+      try {
+        JSON.parse(buf);
+      } catch (e) {
+        throw new Error("Invalid JSON");
+      }
+    },
+  })
+);
+
 app.use(bodyParser.urlencoded({ limit: "100mb", extended: true }));
-app.use(bodyParser.json({ limit: "100mb" }));
+
+// Middleware для обработки ошибок парсинга
+app.use((err, req, res, next) => {
+  if (err instanceof SyntaxError || err.message === "Invalid JSON") {
+    return res.status(400).json({
+      error: "Invalid JSON format",
+      message: "Request body must be valid JSON object/array",
+    });
+  }
+  next();
+});
 
 const host = process.env.HOST;
 const port = process.env.PORT;
